@@ -22,3 +22,6 @@ Añadir => npm run cli add 'Llamar al dentista'
 Completada => npm run cli mark 1
 Eliminar => npm run cli remove 1
 Mostrar Tascas => npm run cli show j
+
+Para utilizar el modo web:
+ACTUALMENTE ESTA EN MODO PRUEBA Y NO ESTA HABILITADO, SI ERES CAPAZA DE ARREGLAR LOS ERRORES, ENHORABUENA, ERES UN BUEN DEV, DEVE, DEVELO, DEVELOPEEER!!

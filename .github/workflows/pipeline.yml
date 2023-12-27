@@ -9,5 +9,11 @@ jobs:
   a_currar_nene:
     runs-on: ubuntu-latest
     steps:
-      - name: echo the message
-        run: echo 'Hola Mundo'
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+      - name: Instalar dependencias
+        run: npm run eslint #Que es esling??

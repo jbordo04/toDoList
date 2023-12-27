@@ -1,11 +1,11 @@
 import dotenv from "dotenv";
 dotenv.config();
-import express, { Express, Request, Response } from "express";
+import express from "express";
 import { add, remove, showTask, markAsDone } from "./Task.ts";
 
 import { Landing, ListTask } from "./landing.ts";
 
-const app: Express = express();
+const app = express();
 const PORT = process.env.PORT || 3070;
 app.use("/App.ts", express.static(__dirname + "/src/App.ts"));
 app.use("/index.html", express.static(__dirname + "../index.html"));

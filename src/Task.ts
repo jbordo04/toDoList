@@ -9,15 +9,15 @@ type Task = {
 };
 const filePath = path.join(__dirname, "db.txt");
 
-export const add = async (arg: string): Promise<Task | "ok" | "ko" | {}> => {
+export const add = async (arg: string): Promise<Task | "ok" | "ko"> => {
   try {
     const dataDB = await fs.promises.readFile(filePath, "utf8");
     const dataJSON = JSON.parse(dataDB);
 
-    var listTaskToDo: Task[] = dataJSON[0];
-    var listTaskDone: Task[] = dataJSON[1];
-    var listTaskRemoved: Task[] = dataJSON[2];
-    var idTask: number = dataJSON[3];
+    const listTaskToDo: Task[] = dataJSON[0];
+    const listTaskDone: Task[] = dataJSON[1];
+    const listTaskRemoved: Task[] = dataJSON[2];
+    let idTask: number = dataJSON[3];
 
     const tasK = {
       id: idTask,
@@ -28,7 +28,7 @@ export const add = async (arg: string): Promise<Task | "ok" | "ko" | {}> => {
     idTask += 1;
     listTaskToDo.push(tasK);
 
-    const dataFS = await fs.promises.writeFile(
+    await fs.promises.writeFile(
       filePath,
       JSON.stringify([listTaskToDo, listTaskDone, listTaskRemoved, idTask])
     );
@@ -44,10 +44,10 @@ export const markAsDone = async (arg: number): Promise<Task | string> => {
     const dataDB = await fs.promises.readFile(filePath, "utf8");
     const dataJSON = JSON.parse(dataDB);
 
-    var listTaskToDo: Task[] = dataJSON[0];
-    var listTaskDone: Task[] = dataJSON[1];
-    var listTaskRemoved: Task[] = dataJSON[2];
-    var idTask: number = dataJSON[3];
+    const listTaskToDo: Task[] = dataJSON[0];
+    const listTaskDone: Task[] = dataJSON[1];
+    const listTaskRemoved: Task[] = dataJSON[2];
+    const idTask: number = dataJSON[3];
 
     const itemIndex = listTaskToDo.findIndex((item) => item.id === arg);
     listTaskToDo[itemIndex].toDone = true;
@@ -68,17 +68,17 @@ export const remove = async (arg: number): Promise<string | "ko"> => {
     const dataDB = await fs.promises.readFile(filePath, "utf8");
     const dataJSON = JSON.parse(dataDB);
 
-    var listTaskToDo: Task[] = dataJSON[0];
-    var listTaskDone: Task[] = dataJSON[1];
-    var listTaskRemoved: Task[] = dataJSON[2];
+    const listTaskToDo: Task[] = dataJSON[0];
+    const listTaskDone: Task[] = dataJSON[1];
+    const listTaskRemoved: Task[] = dataJSON[2];
 
-    var idTask: number = dataJSON[3];
+    const idTask: number = dataJSON[3];
     const itemIndex = listTaskToDo.findIndex((item) => item.id == arg);
     const itemDeleted = listTaskToDo.filter((item) => item.id == arg);
     listTaskToDo[itemIndex].toDelete = true;
     listTaskRemoved.push(itemDeleted[0]);
 
-    const dataFS = await fs.promises.writeFile(
+    await fs.promises.writeFile(
       filePath,
       JSON.stringify([listTaskToDo, listTaskDone, listTaskRemoved, idTask])
     );
@@ -95,25 +95,30 @@ export const showTask = async (): Promise<
     const dataDB = await fs.promises.readFile(filePath, "utf8");
     const dataJSON = JSON.parse(dataDB);
 
-    var listTaskToDo: Task[] = dataJSON[0];
-    var listPendiente = listTaskToDo.filter(
+    const listTaskToDo: Task[] = dataJSON[0];
+    const listPendiente = listTaskToDo.filter(
       (task) => task.toDone == false && task.toDelete == false
     );
-    var listTaskToShow = listPendiente.map(({ id, tasca }) => ({ id, tasca }));
+    const listTaskToShow = listPendiente.map(({ id, tasca }) => ({
+      id,
+      tasca,
+    }));
     return listTaskToShow;
     // return "list";
   } catch (err) {
     return "ko";
   }
 };
-export const showAllTask = async (): Promise<{} | "AllList"> => {
+export const showAllTask = async (): Promise<
+  { toDo: Task[]; done: Task[]; removed: Task[] } | "AllList" | "ko"
+> => {
   try {
     const dataDB = await fs.promises.readFile(filePath, "utf8");
     const dataJSON = JSON.parse(dataDB);
 
-    var listTaskToDo: Task[] = dataJSON[0];
-    var listTaskDone: Task[] = dataJSON[1];
-    var listTaskRemoved: Task[] = dataJSON[2];
+    const listTaskToDo: Task[] = dataJSON[0];
+    const listTaskDone: Task[] = dataJSON[1];
+    const listTaskRemoved: Task[] = dataJSON[2];
     return { toDo: listTaskToDo, done: listTaskDone, removed: listTaskRemoved };
     // return "AllList";
   } catch (err) {
@@ -135,7 +140,7 @@ const parseArg = (args: any): [string, string] => {
 };
 
 const value = parseArg(process.argv);
-let data: any;
+let data;
 let idOrder;
 async function toDo(arg: string) {
   switch (arg) {

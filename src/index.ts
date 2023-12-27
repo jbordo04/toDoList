@@ -64,35 +64,35 @@ Escriba la tasca que quiera realizar:
 {{listaTexto}}
 `;
 
-app.get("/", async (req, res) => {
-  // const inputHTML = Input();
-  const listToShow = await showTask();
-  console.log("In:", listToShow);
-  // res.redirect("/index.html");
-  var TaskasRendering: string = "";
-  if (listToShow.length == 0) {
-    return res.send(Landing.replace("{{TaskasToShow}}", ""));
-  } else {
-    for (let i = 0; i < listToShow.length; ++i) {
-      TaskasRendering += /*html*/ `
-    <div class="Task" style='display:flex; alig-item:center'>
-      <p>${listToShow[i].tasca}</p>
-      <div>
-        <button type=button class="buttDone" onclick='marcarDone(this)'>Marcar como Hecho</button>
-        <button type=button class="buttDelete" onclick='borrarTask(this)'>Borrar Tarea</button>
-      </div>
-    </div>`;
-    }
-  }
+// app.get("/", async (req, res) => {
+//   // const inputHTML = Input();
+//   const listToShow = await showTask();
+//   console.log("In:", listToShow);
+//   // res.redirect("/index.html");
+//   var TaskasRendering: string = "";
+//   if (listToShow.length == 0) {
+//     return res.send(Landing.replace("{{TaskasToShow}}", ""));
+//   } else {
+//     for (let i = 0; i < listToShow.length; ++i) {
+//       TaskasRendering += /*html*/ `
+//     <div class="Task" style='display:flex; alig-item:center'>
+//       <p>${listToShow[i].tasca}</p>
+//       <div>
+//         <button type=button class="buttDone" onclick='marcarDone(this)'>Marcar como Hecho</button>
+//         <button type=button class="buttDelete" onclick='borrarTask(this)'>Borrar Tarea</button>
+//       </div>
+//     </div>`;
+//     }
+//   }
 
-  //   console.log("toRedner:", TaskasRendering);
-  res.send(
-    Landing.replace("{{TaskasToShow}}", TaskasRendering).replace(
-      "Actualmente no tienes ninguna tarea por hacer",
-      ""
-    )
-  );
-});
+//   //   console.log("toRedner:", TaskasRendering);
+//   res.send(
+//     Landing.replace("{{TaskasToShow}}", TaskasRendering).replace(
+//       "Actualmente no tienes ninguna tarea por hacer",
+//       ""
+//     )
+//   );
+// });
 
 app.listen(PORT, () => {
   console.log(`[Server]: Server is running at   http://localhost:${PORT}`);

@@ -1,0 +1,22 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bodyTask {
+  display: flex;
+  /* flex-direction: row; */
+  /* margin-top: 300px; */
+  align-items: center;
+  justify-content: center;
+  /* position: absolute;
+  left: 30%;
+  top: 50%; */
+}
+#buttSubmit {
+  margin: 20px;
+  /* color: aquamarine; */
+}

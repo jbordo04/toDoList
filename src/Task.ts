@@ -73,9 +73,9 @@ export const remove = async (arg: number): Promise<string | "ko"> => {
     var listTaskRemoved: Task[] = dataJSON[2];
 
     var idTask: number = dataJSON[3];
-    const listClean = listTaskToDo.filter((item) => item.id != arg);
+    const itemIndex = listTaskToDo.findIndex((item) => item.id == arg);
     const itemDeleted = listTaskToDo.filter((item) => item.id == arg);
-    listTaskToDo = listClean;
+    listTaskToDo[itemIndex].toDelete = true;
     listTaskRemoved.push(itemDeleted[0]);
 
     const dataFS = await fs.promises.writeFile(
@@ -96,8 +96,10 @@ export const showTask = async (): Promise<
     const dataJSON = JSON.parse(dataDB);
 
     var listTaskToDo: Task[] = dataJSON[0];
-
-    var listTaskToShow = listTaskToDo.map(({ id, tasca }) => ({ id, tasca }));
+    var listPendiente = listTaskToDo.filter(
+      (task) => task.toDone == false && task.toDelete == false
+    );
+    var listTaskToShow = listPendiente.map(({ id, tasca }) => ({ id, tasca }));
     return listTaskToShow;
     // return "list";
   } catch (err) {
@@ -119,10 +121,10 @@ export const showAllTask = async (): Promise<{} | "AllList"> => {
   }
 };
 
-type ParseArgas = {
-  Order: string;
-  dataOrder: number;
-};
+// type ParseArgas = {
+//   Order: string;
+//   dataOrder: number;
+// };
 
 const parseArg = (args: any): [string, string] => {
   if (args.length != 4) throw new Error("Son 4 comando para escribir");
@@ -144,7 +146,7 @@ async function toDo(arg: string) {
     case "mark":
       idOrder = Number(value[1]);
       data = await markAsDone(idOrder);
-      console.log("Se ha marcada como hecha esta tasca", data);
+      console.log("Se ha marcada como hecha esta tasca: ", data);
 
       break;
     case "remove":

@@ -1,0 +1,13 @@
+name: Check App
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  a_currar_nene:
+    runs-on: ubuntu latest
+    steps:
+      - name: echo the message
+        run: echo 'Hola Mundo'

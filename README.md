@@ -3,6 +3,7 @@
 Hay dos comandos para iniciar los aplicacion, en modo CLI => npm run cli, o en modo web => npm run web.
 
 Para utilizar el modo CLI:
+
 1- Siempre escribir el comando: npm run cli
 2- Añadir siempre una cuarta palabra ==> ACCIÓN
 Tienes 4:
@@ -24,4 +25,5 @@ Eliminar => npm run cli remove 1
 Mostrar Tascas => npm run cli show j
 
 Para utilizar el modo web:
+
 ACTUALMENTE ESTA EN MODO PRUEBA Y NO ESTA HABILITADO, SI ERES CAPAZA DE ARREGLAR LOS ERRORES, ENHORABUENA, ERES UN BUEN DEV, DEVE, DEVELO, DEVELOPEEER!!

@@ -5,6 +5,7 @@ export const Landing = /*html*/ `
     <title>ToDo</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="/landing.css">
+    <script src="/function.ts"></script>
   </head>
   <body >
     <div class='bodyTask'>

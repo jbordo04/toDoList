@@ -28,6 +28,6 @@ jobs:
           cache: "npm"
           node-version: "18"
       - name: Install dependencies
-        run: npm ciLint
+        run: npm install
       - name:
         run: npm run eslint

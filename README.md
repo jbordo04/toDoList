@@ -42,4 +42,8 @@ Mostrar Tascas => `npm run cli show j`
 
 Para utilizar el modo WEB:
 
-ACTUALMENTE ESTÁ EN MODO PRUEBA Y NO ESTA HABILITADO, SI ERES CAPAZA DE ARREGLAR LOS ERRORES, ENHORABUENA, ERES UN BUEN DEV, DEVE, DEVELO, DEVELOPEEER!!
+1- Iniciarlo con el comando `npm run web`
+
+2- Si no se abre una pestaña en el navegador automaticamente, hacer ctrl + click al enlace de localhost
+
+3- Ejemplo visual dinámico del potencial de la app

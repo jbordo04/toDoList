@@ -111,7 +111,7 @@ export const showTask = async (): Promise<
   }
 };
 export const showAllTask = async (): Promise<
-  { toDo: Task[]; done: Task[]; removed: Task[] } | "AllList" | "ko"
+  [Task[], Task[], Task[]] | "AllList" | "ko"
 > => {
   try {
     const dataDB = await fs.promises.readFile(filePath, "utf8");
@@ -120,7 +120,7 @@ export const showAllTask = async (): Promise<
     const listTaskToDo: Task[] = dataJSON[0];
     const listTaskDone: Task[] = dataJSON[1];
     const listTaskRemoved: Task[] = dataJSON[2];
-    return { toDo: listTaskToDo, done: listTaskDone, removed: listTaskRemoved };
+    return [listTaskToDo, listTaskDone, listTaskRemoved];
     // return "AllList";
   } catch (err) {
     return "ko";

@@ -15,7 +15,7 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
   // "exclude": ["dist", "node_modules"],
-  "include": ["./src/**/*", "./tests/**/*"] //
+  "include": ["./src/**/*", "./tests/**/*", "dist/function.js"] //
   // "include": ["./tests/**/*"]
 }
 // tsc --noEmit false //Comando en bash

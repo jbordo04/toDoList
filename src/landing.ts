@@ -6,7 +6,7 @@ export const Landing = /*html*/ `
     <meta charset="UTF-8" />
     <meta name="description" content="Página para gestionar">
     <link rel="stylesheet" href="/landing.css">
-    <script type="application/javascript" src="/function.js"></script>    
+    <script src="/function"></script>    
   </head>
 
   <body>
@@ -20,8 +20,6 @@ export const Landing = /*html*/ `
         </form>
       </div>
       <div class="listTask">
-          <button type=button id='-id' class="buttDone" onclick='marcarDone()'>Marcar como Hecho</button>
-          <button type=button id='-id' class="buttDelete" onclick='borrarTask()'>Borrar Tarea</button>
           Actualmente no tienes ninguna tarea por hacer
           {{TaskasToShow}}
         </div>    

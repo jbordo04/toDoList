@@ -6,7 +6,18 @@ on:
       - master
 
 jobs:
-  a_currar_nene:
+  # a_currar_nene:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #       with:
+  #         fetch-depth: 0
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         node-version: "18"
+  #     - name: Instalar dependencias
+  #       run: npm run eslint #Que es esling??
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,6 +25,9 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
+          cache: "npm"
           node-version: "18"
-      - name: Instalar dependencias
-        run: npm run eslint #Que es esling??
+      - name: Install dependencies
+        run: npm ciLint
+      - name:
+        run: npm run eslint

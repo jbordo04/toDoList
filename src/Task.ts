@@ -131,7 +131,7 @@ export const showAllTask = async (): Promise<
 //   dataOrder: number;
 // };
 
-const parseArg = (args: any): [string, string] => {
+const parseArg = (args: string[]): [string, string] => {
   if (args.length != 4) throw new Error("Son 4 comando para escribir");
 
   const Order = String(args[2]);
@@ -140,6 +140,7 @@ const parseArg = (args: any): [string, string] => {
 };
 
 const value = parseArg(process.argv);
+
 let data;
 let idOrder;
 async function toDo(arg: string) {

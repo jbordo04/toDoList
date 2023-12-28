@@ -1,29 +1,45 @@
 # toDoList
 
-Hay dos comandos para iniciar los aplicacion, en modo CLI => npm run cli, o en modo web => npm run web.
+Empezar por ejecutar `npm install` dentro de la carpeta del proyecto.
+
+Hay varios comandos para ejecutar:
+
+`npm test` inicia los test de comandos
+`npm run eslint` inicia el eslint
+`npm run cli` inicia la app a traves de CLI
+`npm run web` inicia la app a través de un pagina web
 
 Para utilizar el modo CLI:
 
-1- Siempre escribir el comando: npm run cli
+1- Siempre escribir el comando: `npm run cli`
+
 2- Añadir siempre una cuarta palabra ==> ACCIÓN
+
 Tienes 4:
-add: Añade una tasca nueva pendiente de hacer.
-mark: Marca una tasca como completada.
-remove: Elimina una tasca pendiente.
-show: Muestra todas las tascas pendientes.
-showAll: Muestra todas las tascas pendientes, completadas y eliminadas.
+
+`add`: Añade una tasca nueva pendiente de hacer.
+`mark`: Marca una tasca como completada.
+`remove`: Elimina una tasca pendiente.
+`show`: Muestra todas las tascas pendientes.
+`showAll`: Muestra todas las tascas pendientes, completadas y eliminadas.
+
 3- Añadir siempre un 5a palabra, segun la acción deseada:
-add => tasca entre comillas
-mark => id de la tasca, se encuentra con la accion SHOW
-remove => id de la tasca, se encuentra con la accion SHOW
-show => una letra cualquiera
+
+add + tasca entre comillas
+
+mark + id de la tasca, se encuentra con la accion SHOW
+
+remove + id de la tasca, se encuentra con la accion SHOW
+
+show + una letra cualquiera
 
 Ejemplo:
-Añadir => npm run cli add 'Llamar al dentista'  
-Completada => npm run cli mark 1
-Eliminar => npm run cli remove 1
-Mostrar Tascas => npm run cli show j
 
-Para utilizar el modo web:
+Añadir => `npm run cli add 'Llamar al dentista'`
+Completada => `npm run cli mark 1`
+Eliminar => `npm run cli remove 1`
+Mostrar Tascas => `npm run cli show j`
 
-ACTUALMENTE ESTA EN MODO PRUEBA Y NO ESTA HABILITADO, SI ERES CAPAZA DE ARREGLAR LOS ERRORES, ENHORABUENA, ERES UN BUEN DEV, DEVE, DEVELO, DEVELOPEEER!!
+Para utilizar el modo WEB:
+
+ACTUALMENTE ESTÁ EN MODO PRUEBA Y NO ESTA HABILITADO, SI ERES CAPAZA DE ARREGLAR LOS ERRORES, ENHORABUENA, ERES UN BUEN DEV, DEVE, DEVELO, DEVELOPEEER!!

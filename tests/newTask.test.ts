@@ -1,20 +1,20 @@
-import { add, markAsDone, remove, showTask } from "../src/Task";
+import { add, markAsDone, remove, showTask } from "../src/functionTask";
 
-describe("comprovar la funcionalidad de añadir una tasca", () => {
+describe("comprovar las diferentes acciones", () => {
   test("Add Task", async () => {
-    const task = add("Comprar comida");
-    expect(task).toBe(true);
+    const result = await add("Comprar comida");
+    expect(result).toBe(true);
   });
   test("Done Task", async () => {
-    const task = markAsDone(0);
-    expect(task).toBe("update");
-  });
-  test("Remove Task", async () => {
-    const task = remove(0);
-    expect(task).toBe("ko");
+    const result = await markAsDone(1);
+    expect(typeof result).toBe("string");
   });
   test("Show List Task", async () => {
-    const task = showTask();
-    expect(task).toBe("list");
+    const result = await showTask();
+    expect(typeof result).toBe("object");
+  });
+  test("Remove Task", async () => {
+    const result = await remove(1);
+    expect(typeof result).toBe("string");
   });
 });

@@ -1,1 +1,1 @@
-[[],[],[],1]
+[[{"id":1,"tasca":"oihi","toDone":false,"toDelete":false},{"id":2,"tasca":"oihi","toDone":false,"toDelete":false},{"id":3,"tasca":"marcar","toDone":false,"toDelete":false},{"id":4,"tasca":"Ir de comparas","toDone":false,"toDelete":false}],[],[],5]

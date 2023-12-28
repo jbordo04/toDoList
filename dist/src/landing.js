@@ -1,4 +1,7 @@
-export const Landing = /*html*/ `
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ListTask = exports.Landing = void 0;
+exports.Landing = `
 <!DOCTYPE html>
 <html lang="es-ES">
   <head>
@@ -22,13 +25,12 @@ export const Landing = /*html*/ `
       <div class="listTask">
           <button type=button id='-id' class="buttDone" onclick='marcarDone()'>Marcar como Hecho</button>
           <button type=button id='-id' class="buttDelete" onclick='borrarTask()'>Borrar Tarea</button>
-          Actualmente no tienes ninguna tarea por hacer
-          {{TaskasToShow}}
         </div>    
       </div>
     </body>
     </html>
     `;
-export const ListTask = /*html*/ `
+exports.ListTask = `
 
 `;
+//# sourceMappingURL=landing.js.map

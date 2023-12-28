@@ -6,17 +6,6 @@ on:
       - master
 
 jobs:
-  # a_currar_nene:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #       with:
-  #         fetch-depth: 0
-  #     - uses: actions/setup-node@v4
-  #       with:
-  #         node-version: "18"
-  #     - name: Instalar dependencias
-  #       run: npm run eslint #Que es esling??
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -28,6 +17,9 @@ jobs:
           cache: "npm"
           node-version: "18"
       - name: Install dependencies
-        run: npm install
-      - name:
+        run: npm ci # ci = clean install ==> Lo mismo que npm i/install, pero más rapido, checkeq el packjson-lock
+        # run: npm i --no-audit --no-fund --no-optional #Para quitar los datos extras de las intall e.g. 37pckges install , etc
+      - name: Ejecutar esLint
         run: npm run eslint
+      - name: Test
+        run: npm test
